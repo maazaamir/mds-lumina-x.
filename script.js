@@ -79,3 +79,17 @@ function runAnimations() {
 
     ScrollTrigger.refresh();
 }
+// Live Clock for Footer
+function updateClock() {
+    const timeElement = document.getElementById('live-time');
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('en-US', { 
+        hour12: false, 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit' 
+    });
+    if (timeElement) timeElement.textContent = timeString;
+}
+setInterval(updateClock, 1000);
+updateClock(); // Run immediately
